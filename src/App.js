@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef } from "react";
+import About from "./component/About";
+import Home from "./component/Home";
+import Navbar from "./component/Navbar.";
+import SectionContextProvider from "./context/SectionContext";
 
 function App() {
+  const sectionHome = useRef(null);
+  const sectionAbout = useRef(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SectionContextProvider>
+        <Navbar />
+        <Home />
+        <About />
+      </SectionContextProvider>
     </div>
   );
 }
